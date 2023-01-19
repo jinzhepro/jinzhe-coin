@@ -1,9 +1,21 @@
 import BlockChain from "./blockChain.js";
+import Transactions from "./transactions.js";
 
 const chain = new BlockChain()
 
-chain.addBlock('11111')
-chain.addBlock('22222')
-// chain.chain[1].Data = 123
-console.log(chain.isChainVaild())
-console.log(chain)
+chain.addBlock('address1')
+console.log(chain.getBalanceOfAddress('address1'))
+chain.addBlock('address1')
+console.log(chain.getBalanceOfAddress('address1'))
+chain.addBlock('address1')
+console.log(chain.getBalanceOfAddress('address1'))
+
+chain.addBlock('address2')
+console.log(chain.getBalanceOfAddress('address2'))
+chain.addBlock('address2')
+console.log(chain.getBalanceOfAddress('address2'))
+
+chain.createTransactions( new Transactions('address1', 'address2', 3))
+chain.createTransactions( new Transactions('address2', 'address1', 8))
+console.log(chain.getBalanceOfAddress('address2'))
+
